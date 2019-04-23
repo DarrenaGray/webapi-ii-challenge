@@ -36,7 +36,7 @@ router.get('/:id', async (req, res) => {
 });
 
 router.post('/', async (req, res) => {
-    if (req.body.title || req.body.contents) {
+    if (req.body.title && req.body.contents) {
         try {
             const post = await db.insert(req.body);
             res.status(201).json(post);
